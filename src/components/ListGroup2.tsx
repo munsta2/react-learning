@@ -1,19 +1,20 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
-function ListGroup() {
-  let list = ["sudbury", "Toronto", "Montreal", "barrie", "soo"];
+interface Props {
+  list: Array<string>;
+}
+
+function ListGroup({ list }: Props) {
   const [todoText, setTodoText] = useState("");
   const [items, setItems] = useState(list);
 
   //hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  const removeItem = (index: number) => {
-    const newItems = [] as Array<string>;
-    for (let i = 0; i < items.length; i++) {
-      newItems[i] = items[i];
-    }
+  // Side Effects / Lifecycle
 
+  const removeItem = (index: number) => {
+    const newItems = [...items];
     newItems.splice(index, 1);
     setItems(newItems);
   };

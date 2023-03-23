@@ -21,6 +21,8 @@ function App() {
       <Button color="danger" onClick={() => setAlertVisibility(true)}>
         click me
       </Button>
+
+      <ListGroup2 list={items} />
     </div>
   );
 }
